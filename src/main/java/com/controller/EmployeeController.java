@@ -58,7 +58,7 @@ public class EmployeeController extends HttpServlet {
             ofy().save().entities(employee).now();
 
         }
-        resp.sendRedirect("/create");
+        resp.sendRedirect("/list");
 
 
     }
