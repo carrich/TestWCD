@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class EmployeeController extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       req.getRequestDispatcher("/employee.jsp");
+       req.getRequestDispatcher("/employee.jsp").forward(req, resp);
     }
 
     @Override
@@ -30,6 +31,7 @@ public class EmployeeController extends HttpServlet {
           String address = req.getParameter("address");
           String position = req.getParameter("position");
           String department = req.getParameter("department");
+        long id = Calendar.getInstance().getTimeInMillis();
         // validate data
 
             HashMap<String, String> errors = new HashMap<>();
@@ -50,6 +52,7 @@ public class EmployeeController extends HttpServlet {
 
         if (errors.size() == 0) {
             Employee employee = new Employee();
+            employee.setId(id);
             employee.setFullName(fullName);
             employee.setBirthDay(birthDay);
             employee.setAddress(address);

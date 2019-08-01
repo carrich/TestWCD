@@ -20,7 +20,7 @@ public class listController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Employee> list = ofy().load().type(Employee.class).list();
         req.setAttribute("list",list);
-        req.getRequestDispatcher("/list.jsp").forward(req,resp);
+        req.getRequestDispatcher("/list.jsp").forward(req, resp);
     }
 
 
