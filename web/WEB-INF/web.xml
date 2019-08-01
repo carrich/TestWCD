@@ -5,7 +5,7 @@
          version="2.5">
     <servlet>
         <servlet-name>ListController</servlet-name>
-        <servlet-class>com.controller.EmployeeController</servlet-class>
+        <servlet-class>com.controller.listController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ListController</servlet-name>
